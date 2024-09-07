@@ -1,0 +1,21 @@
+﻿@page
+@model UrlStatusChecker.Pages.IndexModel
+@{
+    ViewData["Title"] = "URL Статус Код";
+}
+
+<h1>Введите URL, чтобы получить статус код</h1>
+
+<form method="post">
+    <input type="text" name="url" placeholder="Введите URL" required>
+    <input type="submit" value="Отправить">
+</form>
+
+@if (Model.StatusCode != null)
+{
+    <h2>Статус код: @Model.StatusCode</h2>
+    @if (Model.ImageUrl != null)
+    {
+        <img src="@Model.ImageUrl" alt="Изображение" style="max-width: 100%; height: auto;" />
+    }
+}
